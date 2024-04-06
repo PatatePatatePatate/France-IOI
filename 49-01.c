@@ -2,34 +2,19 @@
 #define repeat(nb) for (int _loop = 1, _max = (nb); _loop <= _max; _loop++)
 int main()
 {
-int nbr;
-int posx;
-int posy;
-int xmin=1000000;
-int xmax=0;
-int ymin=1000000;
-int ymax=0;
-scanf("%d", &nbr);
-repeat(nbr)
+int posactuelle;
+int nbrvillage;
+int posvillage;
+int counter = 0;
+scanf("%d", &posactuelle);
+scanf("%d", &nbrvillage);
+repeat(nbrvillage)
 {
-    scanf("%d", &posx);
-    scanf("%d", &posy);
-    if(posx < xmin)
+    scanf("%d", &posvillage);
+    if(posvillage -50 <= posactuelle && posvillage + 50 >= posactuelle)
     {
-        xmin = posx;
-    }
-    if(posx > xmax)
-    {
-        xmax = posx;
-    }
-    if(posy < ymin)
-    {
-        ymin = posy;
-    }
-    if(posy > ymax)
-    {
-        ymax = posy;
+        counter++;
     }
 }
-printf("%d", (xmax - xmin) * 2 + (ymax - ymin) * 2);
+printf("%d\n", counter);
 }
